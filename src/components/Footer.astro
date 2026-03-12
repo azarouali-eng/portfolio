@@ -1,0 +1,26 @@
+---
+/**
+ * Footer.astro
+ * Simple footer with copyright and quick links.
+ */
+import { profile } from '../data/profile';
+
+const navItems = ['about','skills','education','projects','contact'].filter(i=>true); // adjust as in header later
+---
+<footer>
+  <div class="footer-content">
+    <div class="brand">
+      <strong>{profile.personal.firstName} {profile.personal.lastName}</strong>
+      <p>Built with Astro, deployed on Vercel</p>
+    </div>
+    <div class="links">
+      <ul>
+        {navItems.map(i=><li><a href={'#'+i}>{i}</a></li>)}
+      </ul>
+    </div>
+  </div>
+</footer>
+<style>
+footer{padding:2rem;background:var(--glass-bg);backdrop-filter:blur(8px);}
+.footer-content{display:flex;justify-content:space-between;}
+</style>

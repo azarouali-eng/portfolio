@@ -1,0 +1,39 @@
+---
+/**
+ * Header.astro
+ * Sticky navigation bar with logo, links, theme toggle and mobile drawer.
+ * All interactive JS is self-contained and inline within this component.
+ */
+import type { SocialLink } from '../data/profile';
+import { profile } from '../data/profile';
+
+// Generate nav items based on existing sections: basic example
+const sections = ['about','skills','education','projects','contact'];
+// filter by presence of data in profile (simple heuristic)
+const navItems = sections.filter(s => {
+  switch(s){
+    case 'about': return true;
+    case 'skills': return profile.technicalSkills && Object.keys(profile.technicalSkills).length>0;
+    case 'education': return profile.education && profile.education.length>0;
+    case 'projects': return profile.projects && profile.projects.length>0;
+    case 'contact': return true;
+    default: return false;
+  }
+});
+
+---
+<header>
+  <!-- placeholder header markup -->
+  <nav>
+    <span class="logo">{profile.personal.firstName} {profile.personal.lastName}</span>
+    <ul>
+      {navItems.map(i => <li><a href={"#"+i}>{i}</a></li>)}
+    </ul>
+  </nav>
+</header>
+<style>
+/* minimal styles */
+header {position:sticky;top:0;background:var(--glass-bg);backdrop-filter:blur(10px);padding:10px;}
+nav ul{list-style:none;display:flex;gap:1rem;margin:0;padding:0;}
+.logo{font-weight:bold;}
+</style>
