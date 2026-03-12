@@ -2,7 +2,7 @@
 import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
-import vercel from '@astrojs/vercel/static';
+import vercel from '@astrojs/vercel';
 
 export default defineConfig({
   output: 'static',
