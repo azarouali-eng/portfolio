@@ -36,6 +36,8 @@ All editable content lives in `src/data/profile.ts`. Modify that file to update 
 
 This project is configured to deploy on Vercel using the static adapter. After building (`npm run build`), run `vercel --prod --yes` to push to production. A custom alias is defined in `vercel.json`.
 
+The current live site is: [https://portfolio-aymane-zarouali.vercel.app](https://portfolio-aymane-zarouali.vercel.app)
+
 ## 📌 Additional Notes
 
 - Theme toggling, header drawer, chatbot, and CV export are implemented as standalone components.
